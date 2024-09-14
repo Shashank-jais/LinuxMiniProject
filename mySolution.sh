@@ -5,4 +5,7 @@ mkdir -p secretDir
 if [ -d "maliciousFiles" ]; then
 rm -rf maliciousFiles
 fi
-touch secretDir/.secret
+if [ ! -f "secretDir/.secret" ]; then
+    touch secretDir/.secret
+    chmod 600 secretDir/.secret
+fi
